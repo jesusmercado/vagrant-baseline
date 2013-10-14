@@ -22,7 +22,7 @@ Vagrant.configure("2") do |config|
   config.vm.define hostname.to_sym unless ENV.fetch("use_default_box", "true") == "true"
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "precise"
+  config.vm.box = "precise64"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
@@ -46,7 +46,7 @@ Vagrant.configure("2") do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  
+
   config.vm.synced_folder "..", "/vagrant" if ENV['baseline_box']
 
   cache_dir = local_cache(config.vm.box)
